@@ -1,0 +1,67 @@
+.score__background{
+    position: absolute;
+    top:0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    background-color: rgba(0,0,0,0.5);
+    padding: 20px;
+}
+.score__card{
+    min-height: 60px;
+    background-color: white;
+    opacity: 1.0;
+    display: block;
+    margin: auto;
+    position: relative;
+    top: 30%;
+    z-index: 11;
+    border-radius: 10px;
+}
+.score__top{
+    width: 100%;
+    padding: 20px;
+    overflow: auto;
+}
+.score__bottom{
+    width: 100%;
+    padding: 10px;
+    height: 60px;
+    position: relative;
+}
+.score__btn{
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    background-color: #0096ed;
+    position: absolute;
+    right: 20px;
+}
+
+.score__table{
+    width:100%;
+    
+}
+.score__row-table:nth-child(even){
+    background-color: #d8f3dc;
+}
+.score__row-table:nth-child(odd){
+    background-color: #b7e4c7;
+}
+.score__header-table{
+    border-top: none;
+    padding-right: 20px;
+    padding: 5px;
+    background-color:#48bfe3;
+    color: white;
+}
+.score__d-table{
+    padding: 5px;
+}
+

@@ -1,0 +1,37 @@
+<div class="edit-pop-up">
+    <div class="edit-pop-up__background">
+        <div class="edit-pop-up__card">
+            <div class="edit-pop-up__content-container">
+                <div class="edit-pop-up__item">
+                    <label>
+                        Tytuł ankiety
+                    </label>
+                    <input class="form-control" 
+                           #title 
+                           (keyup) = "changeTitle(title.value)"
+                           value="{{surveyItem.title}}">
+                </div>
+                <div class="edit-pop-up__item">
+                    <label>
+                        Opis ankiety
+                    </label>
+                    <textarea class="form-control" rows="5"
+                              #description 
+                              (keyup) = "changeDescription(description.value)"
+                                        >{{surveyItem.description}}</textarea>
+                </div>
+            </div>
+            <div class="edit-pop-up__buttons-container">
+                <div style="clear: both;"></div>          
+                <div class="edit-pop-up__buttons-center">
+                    <input class = "btn btn-success" type="button" value="Zapisz" 
+                        (click) = "saved()" style="margin-right: 10px">
+                    <input class = "btn btn-danger" type="button" value="Anuluj" 
+                        (click) = "closed()">
+                </div>    
+                <div style="clear: both;"></div>          
+            </div>
+            
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+<div *ngIf="succes" class ="logincard">
+    <h1 class="logincard__header">
+    </h1>
+    <p class="logincard__paragraph" style="color:green">Rejestracja powiodła się
+        <a class="btn btn-success"
+        (click) = "success()"
+        routerLink="/login"
+        >Zaloguj się</a></p>
+    <div></div>
+</div>
+
+<div *ngIf="!succes" class ="logincard">
+    <h1 class="logincard__header"></h1>
+    <p class="logincard__paragraph"  style="color:red">Ten login jest zajęty
+        <a class="btn btn-danger"
+        (click) = "success()"
+        routerLink="/register"
+        >Powrót</a></p>
+    <div></div>
+</div>
+

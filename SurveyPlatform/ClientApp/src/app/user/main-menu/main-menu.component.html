@@ -1,0 +1,18 @@
+<div class="menu">
+    <div class="menu__container"> 
+        <div class="menu__left">
+            <h1 class="menu__header">
+                {{title}}
+            </h1>           
+        </div>
+        <div class="menu__right">
+            <div class="menu__menu">
+                <h1 class=" btn btn-danger" style="margin: 0.75em"
+                    *ngIf ="showBackBooton"
+                    routerLink = "/user/survey">
+                    Powrót  
+                </h1> 
+            </div>
+        </div>
+    </div>   
+</div>

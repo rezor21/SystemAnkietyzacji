@@ -1,0 +1,25 @@
+<div class ="logincard"
+    [formGroup]="loginForm">
+    <h1 class="logincard__header">Rejestracja</h1>
+    <input class="form-control" type="text" name="email" placeholder="login"       
+        formControlName="login">
+    <input class="form-control" type="text" name="repeatedemail" placeholder="powtórz login"
+        formControlName="repeatedlogin">
+    <div class = "logincard__haze">       
+        <ul class="logincard__list">    
+            <li (click) = "focusRepeatedemailInput()" style="color:red"
+            *ngIf = "login.errors?.minlength"> login powinien mieć co najmniej 6 znaków</li>         
+            <li (click) = "focusRepeatedemailInput()" style="color:red"
+            *ngIf = "loginForm.hasError('notSame')"> loginy muszą być takie same</li>             
+        </ul>
+        <div class = "logincard__hazeaarrow"></div>
+    </div>
+    <input class="logincard__submitbtn" type="submit" value="Dalej"
+        (click) ="onSubmit()"
+        [ngClass] ="{
+            'logincard__submitbtn': true,
+            'logincard__submitbtn--activ': !loginForm.invalid,
+            'logincard__submitbtn--unactiv': loginForm.invalid
+        }">
+    <div></div>
+</div>

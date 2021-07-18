@@ -1,0 +1,22 @@
+<div *ngIf ="open" class="confirm-pop-up">
+    <div class="confirm-pop-up__background">
+        <div class="confirm-pop-up__card">
+            <div class="confirm-pop-up__content-container">
+                <div class="confirm-pop-up__title">
+                    {{title}}
+                </div>
+                <div class="confirm-pop-up__text">
+                    {{description}}
+                </div>
+            </div>
+            <div class="confirm-pop-up__buttons-container">
+                <div class="confirm-pop-up__buttons-center">
+                    <input class = "confirm-pop-up__btn confirm-pop-up__btn--space-right" type="button" value="Ok" 
+                       (click)="Ok()">
+                </div>    
+                <div style="clear: both;"></div>     
+            </div>
+            
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<app-questionnaire-item *ngFor="let item of questionnaire.items;let i=index" 
+                            [item] ="item" 
+                            [selfIndex] ="i"
+                            (itemEvent)="updateItem($event,i)"></app-questionnaire-item>
+
+<button  style="margin: 1em" class="btn btn-primary"
+        (click)="onSave()">
+  Zapisz
+</button>
+
+<app-pop-up *ngIf ="openSuccessPopUp"
+            title="Gratulację, ukończyłeś ankietę" 
+            text=""
+            (accept) = "onAccept()"></app-pop-up>
+
+<app-pop-up *ngIf ="openFailPopUp"
+            title="Zaznacz odpowiedź dla każdego pytania" 
+            text=""
+            (accept) = "onAccept()"></app-pop-up>

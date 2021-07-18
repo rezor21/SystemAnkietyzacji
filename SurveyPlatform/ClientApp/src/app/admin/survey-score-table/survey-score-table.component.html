@@ -1,0 +1,25 @@
+<div class="score">
+    <div class="score__background">
+        <div class="score__card">
+            <div class="score__top">
+                <table class="table table-striped table-dark">
+                    <tr >
+                      <th >Nazwa użytkownika</th>
+                      <th >Pytanie</th>
+                      <th>Odpowiedź</th>
+                    </tr>
+                    <tr  *ngFor="let data of dataScore.data">
+                      <td >{{data.userName}}</td>
+                      <td >{{data.questionTitle}}</td>
+                      <td >{{data.answerTitle}}</td>
+                    </tr>
+                  </table> 
+            </div>
+            <div style="clear: both;"></div>
+            <div class="score__bottom">
+                <input class = "score__btn" type="button" value="Zamknij" 
+                        (click) = "closed()">
+            </div>
+        </div>
+    </div>
+</div>

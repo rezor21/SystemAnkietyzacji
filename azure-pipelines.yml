@@ -1,0 +1,83 @@
+# ASP.NET Core (.NET Framework)
+# Build and test ASP.NET Core projects targeting the full .NET Framework.
+# Add steps that publish symbols, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'x64'
+  buildConfiguration: 'Release'
+  dotnetSdkVersion: 3.1.301
+
+
+steps:
+
+
+- task: UseDotNet@2
+  displayName: 'Use .Net Core'
+  inputs:
+    packageType: sdk
+    version: '$(dotnetSdkVersion)'
+    installationPath: $(Agent.ToolsDirectory)/dotnet
+    includePreviewVersions: true
+
+- task: DotNetCoreInstaller@0
+  displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
+  inputs:
+    version: '$(dotnetSdkVersion)'
+    
+- task: NuGetToolInstaller@1
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: '$(solution)'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'restore'
+    feedsToUse: 'select'
+- task: VSBuild@1
+  inputs:
+    solution: '$(solution)'
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: Npm@1
+  displayName: 'Restore Angular Dependencies'
+  inputs:
+    workingDir: 'SurveyPlatform/ClientApp'
+
+- task: Npm@1
+  displayName: 'Build Angular'
+  inputs:
+    command: custom
+    workingDir: "SurveyPlatform/ClientApp"
+    customCommand: "run build"
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: publish
+    publishWebProjects: True
+    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    zipAfterPublish: True
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'SurveyPlatform'
+
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Azure dla studentów (5165bf25-51e7-4c18-b65e-6c12d557a570)'
+    appType: 'webApp'
+    WebAppName: 'SurveyPlatform'
+    packageForLinux: '$(Build.ArtifactStagingDirectory)/SurveyPlatform.zip'

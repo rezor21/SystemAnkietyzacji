@@ -1,0 +1,50 @@
+<table class="table table-striped table-dark">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Tytuł</th>
+      <th scope="col">Opis</th>
+      <th scope="col">Akcje</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of survey.items;let i=index">
+      <td>{{item.title}}</td>
+      <td>{{item.description}}</td>
+      <td>
+        <app-survey-item
+                         (edit)="editSurveyItem(i)"
+                         (addquestion)="goToAddQuestions(i)"
+                         (score)="onScore()"
+                         (click)="selectItem(i)"
+                         (addusers)="openAddUsers()"></app-survey-item>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+
+<app-survey-item-edit *ngIf="isEditSurveyItem"
+                      [surveyItem]="editedSurveyItem"
+                      (ediedItem)="saveEditedSurveyItem($event)"
+                      (save)="onSaveEdit()"
+                      (close)="onCloseEdit()"></app-survey-item-edit>
+<app-survey-item-edit *ngIf="isAddSurveyItem"
+                      [surveyItem]="editedSurveyItem"
+                      (ediedItem)="onAddNewSurveyItem($event)"
+                      (save)="onSaveEdit()"
+                      (close)="onCloseEdit()"></app-survey-item-edit>
+
+<app-confirm-pop-up *ngIf="displayConfirmRemovePopUp"
+                    title="Uwaga!"
+                    description="Czy na pewno chcesz usunąć ankietę?"
+                    (confirm)="onRemoveSurveyItem()"
+                    (cancel)="onCacelRemoveSurveyItem()"></app-confirm-pop-up>
+<app-add-users-to-survey-item *ngIf="displayAddUsers"
+                              [surveyid]="selectedSurveyId"
+                              (close)="onCloseAddUsers()"
+                              (save)="onSaveAddUsers()"></app-add-users-to-survey-item>
+<app-survey-score-table *ngIf="displayScore"
+                        (close)="onCloseScore()"
+                        [surveyid]="selectedSurveyId"></app-survey-score-table>

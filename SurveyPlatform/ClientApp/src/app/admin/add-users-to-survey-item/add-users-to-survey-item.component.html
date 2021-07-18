@@ -1,0 +1,27 @@
+<div class="edit-pop-up">
+    <div class="edit-pop-up__background">
+        <div class="edit-pop-up__card">
+            <div class="edit-pop-up__content-container">
+              Lista użytkowników:
+                <ul class="edit-pop-up__list">
+                    <li class = "edit-pop-up__list-item" *ngFor = "let user of users; let i = index" style="border-top: 1px solid black">               
+                        {{user.username}}
+                        <input class="edit-pop-up__checkbox" type="checkbox" [checked] ="user.select" (change)="select(i)"> 
+                    </li>           
+                </ul>
+            </div>
+            <div class="edit-pop-up__buttons-container">
+                
+                <div style="clear: both;"></div>          
+                <div class="edit-pop-up__buttons-center">
+                    <input class = "btn btn-success edit-pop-up__btn--space-right" type="button" value="Zapisz" 
+                        (click) = "saved()">
+                    <input class = "btn btn-danger" type="button" value="Anuluj" 
+                        (click) = "closed()">
+                </div>    
+                <div style="clear: both;"></div>          
+            </div>
+            
+        </div>
+    </div>
+</div>

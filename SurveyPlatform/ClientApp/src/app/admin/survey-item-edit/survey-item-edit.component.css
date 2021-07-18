@@ -1,0 +1,117 @@
+.edit-pop-up__background{
+    position: absolute;
+    top:0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    background-color: rgba(0,0,0,0.5);
+    padding: 20px;
+}
+.edit-pop-up__card{
+    max-width: 500px;
+    min-height: 60px;
+    background-color: white;
+    opacity: 1.0;
+    display: block;
+    margin: auto;
+    position: relative;
+    top: 30%;
+    z-index: 11;
+}
+.edit-pop-up__content-container{
+    min-height: 60px;
+    height: 80%;
+    width: 100%;
+    padding: 20px;
+    font-size: 0.8em;
+}
+.edit-pop-up__item{
+    width: 100%;
+    height: fit-content
+
+}
+.edit-pop-up__item-title{
+    padding-top: 10px;
+    font-weight: bold;
+
+}
+.edit-pop-up__item-input{
+    width: 100%;
+    outline: none;
+    box-sizing: border-box;
+    display: inline-block;
+    border: 3px solid black;
+    padding: 10px;
+    background-color:#f0ffff;   
+}
+.edit-pop-up__item-input:focus{
+    border-radius: 10px;
+    border: 3px solid #0080FF;  
+}
+.edit-pop-up__item-text-area{
+    width: 100%;
+    outline: none;
+    box-sizing: border-box;
+    display: inline-block;
+    border: 3px solid black;
+    padding: 10px;
+    background-color:#f0ffff; 
+    resize: none;
+}
+.edit-pop-up__item-text-area:focus{
+    border-radius: 10px;
+    border: 3px solid #0080FF;  
+}
+
+.edit-pop-up__buttons-container{
+    height: 20%;
+    width: 100%;
+    padding: 20px;
+    padding-top: 5px;
+}
+.edit-pop-up__buttons-center{
+    display: block;
+    width: fit-content;
+}
+.edit-pop-up__haze{
+    min-height: 60px;
+    background-color:#DCDCDC;
+    width: 180px;
+    float: right;
+    margin-bottom: 20px;
+    padding: 10px;
+    position:relative;
+    color:#696969;
+    font-size: 0.9em;
+}
+.edit-pop-up__hazeaarrow {
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-right: 16px solid transparent;
+    border-top: 25px solid #DCDCDC;
+    position: absolute;
+    left: 20px;			
+    bottom: -25px;
+    margin: 0px;
+  }
+.edit-pop-up__btn{
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: none;
+    outline: none;
+    color: white;
+    font-weight: bold;
+    background-color: #0096ed;
+}
+.edit-pop-up__btn--space-right{
+    margin-right: 10px;
+}
+.edit-pop-up__title{
+     text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,46 @@
+<div class="card" (click) = "selectCard()">
+    <div 
+    [ngClass] = "{    
+        'card': true,                                      
+        'card__outline': true,
+        'card__outline--green': openMenu && !isEdit,
+         'card__outline--red': openMenu && isEdit
+    }">
+      <div class="card__container">
+        
+        <div class="card__question">
+          <label>Pytanie:</label>
+          <div *ngIf ="!openMenu">{{item.question}}</div>
+
+
+          <input *ngIf="openMenu" class="form-control card__input--bottomspace" type="text" value="{{item.question}}"
+                 #titleQ
+                 (keyup)="updateQuestionTitle(titleQ.value)">
+        </div>
+
+        <label>Odpowiedzi:</label>
+        <ul class="card__answers">
+          <li class="card__answer-item"
+              *ngFor="let answer of item.answers;let i=index">
+
+            <div *ngIf="!openMenu" class="">
+              {{answer.title}}
+            </div>
+
+            <input *ngIf="openMenu" class="form-control card__input--small" type="text"
+                   #titleA
+                   (keyup)="updateAnswerTitle(titleA.value,i)"
+                   value="{{answer.title}}">
+          </li>
+        </ul>
+        <div *ngIf="openMenu" class="btn btn-primary"
+             (click)="createNewAnswer()">
+          Dodaj odpowiedź
+        </div>
+        <div *ngIf="openMenu" class="btn btn-success"
+             (click)="saveQuestionnaireItem()" style="margin-left:1em">
+          Zapisz zmiany
+        </div>
+      </div>
+    </div>
+</div>

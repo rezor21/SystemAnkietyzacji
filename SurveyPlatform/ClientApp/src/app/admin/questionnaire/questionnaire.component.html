@@ -1,0 +1,8 @@
+<app-questionnaire-item *ngFor="let item of questionnaire.items;let i=index" 
+                            [item] ="item" 
+                            [selfIndex] ="i"
+                            (itemEvent)="updateItem($event,i)"
+                            [openMenu] = "selectedItems[i]"                                                        
+                            (click) = "selectItem(i)"
+                            (remove) = "removeItem(i)"></app-questionnaire-item>
+<app-questionnare-item-new (add) = "addNewQuestionItem()"></app-questionnare-item-new>

@@ -1,0 +1,12 @@
+.main{
+    
+    z-index: 100;
+    height: calc(100vh - 230px);
+    padding: 0px 20px 0px 20px;
+}
+.main__container{
+    margin: auto;
+    display: block;   
+    overflow: auto;
+    background-color: #5cc3ff;
+}

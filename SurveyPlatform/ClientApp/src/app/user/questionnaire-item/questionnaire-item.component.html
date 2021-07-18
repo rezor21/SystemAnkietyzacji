@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card__container">
+    Pytanie:
+    <div class="card__question">
+      {{item.question}}
+    </div>
+
+    Odpowiedzi:
+    <ul class="card__answers">
+      <li class="card__answer-item"
+          *ngFor="let answer of item.answers;let i=index">
+        <input class="card__radio" type="radio"
+               name="{{selfIndex}}"
+               (click)="selectAnswer(i)"> {{answer.title}}
+      </li>
+    </ul>
+
+  </div>
+</div>

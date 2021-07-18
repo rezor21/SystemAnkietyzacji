@@ -1,0 +1,33 @@
+.card{
+    width: 100%;
+    padding: 20px;
+    background-color: inherit;
+    border: none;
+    border-radius: none;
+    cursor: pointer;
+}
+.card__container{
+    height: auto;
+    width: 100%;
+    background-color: white;    
+    min-height: 120px;
+}
+.card__top{
+    border-radius:20px 20px 0px 0px;
+    height: 60px;
+    width: 100%;
+    border-bottom: 3px solid black;
+}
+.card__tittle{
+    height: 50px;
+    font-weight: 500;
+    color: black;
+    text-align: center;
+    padding-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+   text-overflow: clip;
+}
+.card__center{
+    padding: 5px;
+}

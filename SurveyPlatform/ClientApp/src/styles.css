@@ -1,0 +1,72 @@
+.body{
+  margin: 0px;
+  padding: 0px;
+}
+.appheader{
+  margin-top: 3em;
+  text-align: center;
+  width: 100%;
+}
+.logincard {
+  display: block;
+  margin: auto;
+  margin-top: 100px;
+  width: 100%;
+  max-width: 400px;
+  background-color: #E8E8E8;
+  padding: 1.5em;
+}
+.logincard__input{
+  width: 100%;
+  outline: none;
+  box-sizing: border-box;
+  margin-top: 0.85em;
+  display: inline-block;
+  border: 3px solid black;
+  padding: 10px;
+  background-color:#f0ffff;
+}
+.logincard__input--bottomspace{
+  margin-bottom: 20px;
+}
+.logincard__input:focus{ 
+  border: 3px solid #0080FF;  
+}
+.logincard__label{
+  width: 100%;
+  margin-top: 0.85em;
+  display: inline-block;
+}
+.logincard__submitbtn{
+  width: 100%;
+  margin-top: 0.85em;
+  display: inline-block;
+  border: none;
+  padding: 10px; 
+  font-weight: bold; 
+}
+.logincard__submitbtn:focus{
+  border: none;
+  outline: none;
+}
+.logincard__submitbtn--activ {
+  background-color: #09942e;
+  color: white;
+}
+.logincard__submitbtn--unactiv{
+  background-color: #C8C8C8;
+  color: #696969;
+}
+a.logincard__link{
+  text-decoration: none;
+  cursor: pointer;
+  color: blue;
+}
+.logincard__checkbox{
+  width: 1em;
+  height: 1em;
+}
+
+.logincard__red{
+    color: red;
+}

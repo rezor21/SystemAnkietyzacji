@@ -1,0 +1,27 @@
+<div class="logincard"
+     [formGroup]="loginForm">
+  <h1 class="logincard__header">Zaloguj się</h1>
+  <input class="form-control" type="text" name="login" placeholder="login"
+         formControlName="login">
+  <input class="form-control" type="password" name="password" placeholder="hasło"
+         formControlName="password">
+  <div *ngIf="displayError" class="logincard__red">
+    Sprawdź login lub hasło
+  </div>
+
+  <input class="btn logincard__submitbtn" type="submit" value="Zaloguj się"
+         (click)="onSubmit()"
+         [ngClass]="{
+            'logincard__submitbtn': true,
+            'logincard__submitbtn--activ': !loginForm.invalid,
+            'logincard__submitbtn--unactiv': loginForm.invalid
+        }">
+
+  <input class="btn logincard__submitbtn" type="submit" value="Zarejestruj się"
+         (click)="Register()"
+         [ngClass]="{
+            'logincard__submitbtn': true,
+            'logincard__submitbtn--activ': true
+        }">
+  <div></div>
+</div>
