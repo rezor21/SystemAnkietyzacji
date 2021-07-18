@@ -2,7 +2,7 @@ Grupa:
 - Michał Rembisz - 63619
 
 Temat:
-"Webowa platforma ankietyzacji"
+"Webowy system ankietyzacji"
 
 Funkcjonalności:
 - prosty system rejestracji i logowania użytkowników
